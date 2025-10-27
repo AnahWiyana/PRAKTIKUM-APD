@@ -68,6 +68,19 @@ def hapus_data():
     else:
         print("Nomor tidak valid!")
 
+def hitung_diskon(harga, persen_diskon):
+    return harga - (harga * persen_diskon / 100)
+
+def menu_diskon():
+    try:
+        harga = int(input("Masukkan harga asli: "))
+        persen = int(input("Masukkan persen diskon: "))
+        hasil = hitung_diskon(harga, persen)
+        print(f"Harga setelah diskon: Rp{hasil}")
+    except:
+        print("Input harus angka!")
+
+
 while True:
     contoh_data = ("Rafi", "Sneakers", "Deep Clean", 50000, "Selesai")
     print("Contoh data :", contoh_data)
@@ -77,22 +90,25 @@ while True:
     print("2. Lihat Semua Data")
     print("3. Ubah Status Laundry")
     print("4. Hapus Data Laundry")
-    print("5. Keluar")
+    print("5. Hitung diskon")
+    print("6. Keluar")
     print("-------------------------------------------------------------------")
 
-    pilihan = input("Pilih menu (1-5): ")
+    pilihan = input("Pilih menu (1-6): ")
 
     if pilihan == "1":
         tambah_data()
     elif pilihan == "2":
         tampilkan_data()
+    elif pilihan == "3":
+        tampilkan_data()
         nomor = int(input("Masukkan nomor data yang ingin diubah: "))
         ubah_data(nomor)
-    elif pilihan == "3":
-        hapus_data()
     elif pilihan == "4":
-        tampilkan_data()
+        hapus_data()
     elif pilihan == "5":
+        menu_diskon()      
+    elif pilihan == "6":
         print(" Terima kasih! Program Laundry Sepatu selesai.")
         break
     else:
